@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Miriam Libre', sans-serif;
 }
 
 body {
@@ -40,6 +40,7 @@ header {
   color: teal;
   display: block;
   padding: 10px;
+  font-family: 'Poiret One', cursive;
   text-decoration: none;
 }
 
@@ -63,20 +64,69 @@ header {
 .site-title {
   color: darkblue;
   text-align: center;
-  font-family: Apple Chancery, cursive;
+  font-family: 'Indie Flower', cursive;
   font-size: 3em;
 }
 
 .site-subtitle {
+  line-height: 1.8em;
   color: white;
   font-style: italic;
   font-weight: lighter;
   text-align: center;
   font-size: 2em;
-  font-family: Apple Chancery, cursive;
+  font-family: 'Poiret One', cursive;
+}
+
+.Portifólio{
+  background-image: url(../img/fundo2.jpg);
+  padding: 1.3cm;
+  background-size: 100vw 100vh;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Portifólio h2{
+  font-family: 'PT Mono', monospace;
+  margin-bottom: 0.8em;
+  font-size: 1.5em;
+
+}
+
+.Portifólio .grid{
+  display: grid;
+  gap: 2em;
+  text-align: center;
+}
+
+@media (min-width: 560px){
+  .Portifólio .grid{
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 880px){
+  .Portifólio .grid{
+    grid-template-columns: repeat(3, 240px);
+    justify-content: center;
+  }
+}
+
+
+.Portifólio figure{
+  text-align: center;
 }
 
 .img-portfolio {
-  height: 300px;
-  width: auto;
+  object-fit: cover;
+  object-position: left;
+  height: 180px;
+  width: 240px;
+  border-radius: 10%;
 }
+.img-portfolio2 {
+  height: 180px;
+  width: 240px;
+  border-radius: 10%;
+}
+
