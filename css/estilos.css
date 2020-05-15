@@ -6,6 +6,7 @@
 }
 
 body {
+  display: block;
   background-image: url('../img/fundo.jpg');
   background-size: 100vw 100vh;
   height: 100vh;
@@ -33,6 +34,11 @@ header {
   justify-content: space-around;
 }
 
+.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .menu li {
   list-style: none;
 }
@@ -43,7 +49,7 @@ header {
   padding: 10px;
   font-family: 'Poiret One', cursive;
   text-decoration: none;
-  transition: background-color, color, 1s;
+  transition: background-color, color, 0.5s;
 }
 
 .menu a:active,
@@ -100,32 +106,96 @@ header {
   font-family: 'Poiret One', cursive;
 }
 
+section{
+  display: block;
+}
+
+.sobre{
+  background-image: url(https://papers.co/wallpaper/papers.co-sk62-dark-blue-blur-gradation-35-3840x2160-4k-wallpaper.jpg);
+  background-size: cover;
+}
+
+.sobre p{
+  color: aliceblue;
+  margin-bottom: 1.4em;
+  text-indent: 1em;
+  text-align: justify;
+}
+
+.sobre a{
+  color: lightblue;
+  text-decoration: none;
+}
+
+.sobre a:hover{
+  background-color: cyan;
+  color: black;
+}
+
+.sobre .avatar{
+  width: 25%;
+  height: auto;
+  margin: 2em;
+  float: right; 
+  animation: fotinha 2s linear infinite;
+  transition: clip-path 2s;
+}
+
+@keyframes fotinha {
+  0%{
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+  }
+  25%{
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+  50%{
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  }
+  75%{
+    clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  }
+  100%{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 76% 91%, 84% 100%, 56% 91%, 0 91%);
+  }
+}
+
+@media (min-width: 1349px){
+  .sobre,
+  .contato,
+  .Portifólio{
+    max-width: 1349px;
+  }
+}
+
 .Portifólio{
   background-image: url(../img/fundo2.jpg);
   padding: 1.3cm;
-  background-size: 100vw 100vh;
+  background-size: cover;
 }
 
+.sobre,
 .contato,
 .Portifólio{
   min-height: 100vh;
+  padding: 1.3cm;
 }
 
+.sobre h2,
 .contato h2,
 .Portifólio h2{
+  color: lightgreen;
   font-family: 'PT Mono', monospace;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.7em;
   font-size: 1.5em;
-
 }
 
 .gridicons{
   text-align: center;
 }
+
 .Portifólio .grid{
   display: grid;
   gap: 2em;
-  text-align: center;
 }
 
 @media (min-width: 560px){
@@ -137,6 +207,7 @@ header {
 @media (min-width: 880px){
   .Portifólio .grid{
     grid-template-columns: repeat(3, 240px);
+    align-content: center;
     justify-content: center;
   }
 }
@@ -146,6 +217,7 @@ header {
   text-align: center;
 }
 
+
 .img-portfolio {
   object-fit: cover;
   object-position: left;
@@ -154,15 +226,68 @@ header {
 .img-portfolio,
 .img-portfolio2 {
   height: 180px;
-  width: 240px;
+  width: 100%;
   border-radius: 10%;
   transition: transform 900ms;
 }
 
-.img-portfolio:hover,
+/* .img-portfolio:hover,
 .img-portfolio2:hover{
   transform: scale(1.3) rotate(-1.3deg);
+} */
+
+.flipcard{
+  height: 180px;
+  perspective: 1000px;
+  perspective-origin: center;
 }
+
+.card{
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flipcard:hover .card{
+  transform: rotateY(180deg);
+}
+
+.frente, 
+.verso{
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.verso{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 180px;
+  width: 100%;
+  border-radius: 10%;
+  transform: rotateY(180deg);
+}
+
+.verso a{
+  text-align: center;
+  color: rgb(75, 106, 131);
+  margin-bottom: 1.4em;
+  text-indent: 1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  text-decoration: none;
+  transition: text-shadow 1s;
+}
+
+.verso a:hover{
+  text-shadow: 0px 0px 20px blue;
+}
+
+
 
 .contato a{
   text-decoration: none;
